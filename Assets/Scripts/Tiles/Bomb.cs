@@ -7,12 +7,6 @@ public class Bomb : BaseFruit
         _FruitType = FruitType.Bomb;
         SetExplosionStrategy(new CrossExplosionStrategy());
     }
-
-    //public void BombExplode()
-    //{
-    //    _explosionStrategy?.TileExplode(GridPosition,GridManager.Instance);
-    //}
-
     protected override void OnHoverEnter()
     {
         transform.localScale *= 1.2f;
@@ -21,5 +15,9 @@ public class Bomb : BaseFruit
     protected override void OnHoverExit()
     {
         transform.localScale = DefaultScale;
+    }
+    public override void OnExplode()
+    {
+        ExplodeVFX.Play();
     }
 }

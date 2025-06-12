@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class ColorExplosionStrategy : IExplosionStrategy
@@ -51,6 +52,8 @@ public class ColorExplosionStrategy : IExplosionStrategy
 
         foreach (var fruit in matched)
         {
+            fruit.OnExplode();
+
             grid.EmptyGrid(fruit.GridPosition.x, fruit.GridPosition.y);
             grid.GridRemoveFromMap(fruit.GridPosition);
 

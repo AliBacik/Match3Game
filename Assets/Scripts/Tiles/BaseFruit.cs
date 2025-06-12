@@ -4,8 +4,9 @@ using UnityEngine;
 public class BaseFruit : MonoBehaviour
 {
     private IExplosionStrategy _explosionStrategy;
-    public enum FruitType { Apple, Banana, Orange, Blueberry, Pear, Bomb}
+    public enum FruitType { Apple, Banana, Orange, Blueberry, Pear, Bomb }
     public FruitType _FruitType;
+    public ParticleSystem ExplodeVFX;
     public Vector3 DefaultScale;
     public Vector2Int GridPosition {  get; set; }
 
@@ -48,6 +49,11 @@ public class BaseFruit : MonoBehaviour
     protected virtual void OnHoverExit()
     {
         transform.localScale = DefaultScale;
+    }
+
+    public virtual void OnExplode()
+    {
+        ExplodeVFX.Play();
     }
 
     private void OnDisable()

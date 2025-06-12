@@ -37,6 +37,8 @@ public class CrossExplosionStrategy : IExplosionStrategy
     }
     public void DisableGameObject(BaseFruit fruit)
     {
+        fruit.OnExplode();
+
         fruit.transform.DOScale(Vector3.zero, 0.25f).SetEase(Ease.InBack)
             .OnComplete(() =>
             {

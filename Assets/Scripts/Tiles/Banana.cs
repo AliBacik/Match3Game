@@ -17,4 +17,9 @@ public class Banana : BaseFruit
     {
         transform.localScale = DefaultScale;
     }
+
+    public override void OnExplode()
+    {
+        ExplodeVFX.Play();
+    }
 }

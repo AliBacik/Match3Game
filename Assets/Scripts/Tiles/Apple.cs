@@ -17,4 +17,8 @@ public class Apple : BaseFruit
     {
         transform.localScale = DefaultScale;
     }
+    public override void OnExplode()
+    {
+        ExplodeVFX.Play();
+    }
 }
